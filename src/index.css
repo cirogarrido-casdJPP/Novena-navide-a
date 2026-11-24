@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --inst-primary: #14532d;
+    --inst-primary-dark: #0f3f22;
+    --inst-secondary: #991b1b;
+    --inst-accent: #b45309;
+    --inst-canvas: #fbf9f5;
+    --inst-surface: #ffffff;
+    --inst-surface-alt: #f3efe6;
+    --inst-ink: #1c1917;
+    --inst-muted: #57534e;
+    --inst-border: #e5dfd3;
+    --reading-scale: 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--inst-canvas);
+    color: var(--inst-ink);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--inst-canvas);
+    color: var(--inst-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .font-editorial {
+    font-family: 'Fraunces', Georgia, serif;
+  }
+
+  .font-mono-tabular {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Tamaño de lectura adaptable para las oraciones y reflexiones */
+.reading-prose {
+  font-size: calc(1.0625rem * var(--reading-scale));
+  line-height: 1.8;
+}
+
+.reading-prose-lg {
+  font-size: calc(1.1875rem * var(--reading-scale));
+  line-height: 1.85;
+}
+
+.drop-cap::first-letter {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 3.2em;
+  font-weight: 600;
+  float: left;
+  line-height: 0.88;
+  margin-right: 0.14em;
+  margin-top: 0.06em;
+  color: var(--inst-primary);
+}
+
+/* Animaciones navideñas suaves respetando preferencias de movimiento reducido */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes twinkleLight {
+    0%, 100% {
+      opacity: 0.45;
+      transform: scale(0.95);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+  }
+
+  @keyframes gentleSway {
+    0%, 100% {
+      transform: rotate(-1.5deg);
+    }
+    50% {
+      transform: rotate(1.5deg);
+    }
+  }
+
+  @keyframes starGlow {
+    0%, 100% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.06);
+    }
+  }
+
+  .animate-twinkle {
+    animation: twinkleLight 3.2s ease-in-out infinite;
+  }
+
+  .animate-twinkle-delay {
+    animation: twinkleLight 3.2s ease-in-out 1.6s infinite;
+  }
+
+  .animate-sway {
+    transform-origin: top center;
+    animation: gentleSway 4.8s ease-in-out infinite;
+  }
+
+  .animate-star-glow {
+    animation: starGlow 4s ease-in-out infinite;
+  }
+}
+
+/* Estilos de impresión limpios para oraciones y mural comunitario */
+@media print {
+  header, footer, .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}

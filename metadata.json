@@ -1,0 +1,6 @@
+{
+  "name": "Novena de Navidad Institucional",
+  "description": "Plataforma web interactiva para celebrar los nueve días de la Novena de Aguinaldos colombiana en instituciones educativas, con oraciones tradicionales completas, gozos, villancicos, actividades participativas y personalización institucional.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
