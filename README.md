@@ -2,7 +2,7 @@
 
 Aplicación web interactiva, cálida y participativa hecha por la **Familia Garrido Rocha** para rezar juntos en casa los **nueve días de la Novena de Aguinaldos colombiana**.
 
-Funciona **100% en el navegador** (sin servidores privados ni bases de datos de pago), guarda el progreso y la personalización en **LocalStorage**, incluye los **textos tradicionales completos**, **reproducción musical integrada** y es totalmente compatible con **GitHub Pages**.
+Funciona **100% en el navegador** (sin servidores privados ni bases de datos de pago), guarda el progreso y la personalización en **LocalStorage**, incluye los **textos tradicionales completos**, **reproducción musical integrada** y es totalmente compatible con **Vercel** y **GitHub Pages**.
 
 ---
 
@@ -80,3 +80,21 @@ Este proyecto ya incluye `base: './'` en `vite.config.ts` y el flujo automático
    - En **Build and deployment → Source**, selecciona **GitHub Actions**.
 4. **Comparte el enlace con toda la familia**:
    - Al finalizar el flujo en la pestaña **Actions**, GitHub publicará la aplicación en `https://TU_USUARIO.github.io/novena-garrido-rocha/` para abrirla desde cualquier celular, tableta o computador.
+
+---
+
+## Cómo publicar gratis en Vercel (paso a paso)
+
+El proyecto incluye `vercel.json` configurado para Vite (`npm run build`, carpeta `dist/` y reescritura SPA) y ajuste automático de `base` en `vite.config.ts`.
+
+### Opción 1: Desde GitHub en Vercel (recomendada)
+1. Sube el proyecto a un repositorio en GitHub.
+2. Entra a [vercel.com](https://vercel.com), inicia sesión y haz clic en **Add New… → Project**.
+3. Importa tu repositorio; Vercel detectará automáticamente la configuración de `vercel.json` (`Vite`, salida `dist`).
+4. Haz clic en **Deploy** y en menos de un minuto tendrás tu enlace `https://tu-proyecto.vercel.app`.
+
+### Opción 2: Desde la terminal con Vercel CLI
+```bash
+npm i -g vercel
+vercel --prod
+```
